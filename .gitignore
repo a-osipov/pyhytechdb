@@ -1,0 +1,7 @@
+*.pyc
+*.dll
+*.pyd
+/.idea/
+/dist/
+/build/
+/pyhytechdb.egg-info/
