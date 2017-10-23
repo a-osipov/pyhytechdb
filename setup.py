@@ -51,6 +51,7 @@ setup(name="pyhytechdb",
       data_files=data_files,
       description='pyhytechdb package is a set of DBMS HyTech(https://hytechdb.ru/)',
       long_description=open(join(dirname(__file__), 'README.rst')).read(),
+      url='https://github.com/a-osipov/pyhytechdb',
       cmdclass=cmdclass,
       ext_modules=ext_modules,
       classifiers=[
