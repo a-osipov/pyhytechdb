@@ -1,7 +1,5 @@
 PYHYTECHDB
 ========
-
-
 pyhytechdb package is a set of DBMS HyTech(https://hytechdb.ru/)
 bindings for Python Pure python or Cython.
 Python Database API Specification v2.0 It works on
@@ -12,10 +10,8 @@ For work you need:
     - hsinpt.dll 
     - hslogf.dl
 
-
 Getting Started
 ========
-
     import pyhytechdb
 
     user = 'test'
@@ -29,23 +25,16 @@ Getting Started
 
 Installing
 ========
-
 setup install
-
 
 Running the tests
 ========
-
 setup test
-
 
 Authors
 ========
-
 ALEKSANDR OSIPOV aleksandr.osipov@zoho.eu
-
 
 License
 ========
-
 This project is licensed under the MIT License

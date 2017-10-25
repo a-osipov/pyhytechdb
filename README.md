@@ -28,7 +28,7 @@ with pyhytechdb.connect(hdb, user, passwd) as connection:
 
 ### Installing
 
-setup install
+pip install pyhytechdb
 
 ## Running the tests
 

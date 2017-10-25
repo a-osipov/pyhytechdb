@@ -241,14 +241,14 @@ cdef class Connection:
         :return: str
         """
         cdef:
-            unsigned size=20;
+            # unsigned size=50;
             unsigned cnt;
-            char pValue[50]
+            char pValue[80]
         codeerr = htcore.hcSqlGetConnectAttr(self.hdb,
                                  HSCLI_CONN_RMTADDR,
                                  0,
                                  pValue,
-                                 size,
+                                 sizeof(pValue),
                                  &cnt
                                  )
 

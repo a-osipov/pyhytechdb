@@ -28,15 +28,12 @@ version = re.search(
 
 cmdclass = {}
 ext_modules = []
-data_files = [ ('', ['./README.md']),]
-
+data_files = [('', ['./README.md']),]
+depends = ["pyhytechdb/c_hscli.h"]
+sources = ["pyhytechdb/htcore.pyx", "pyhytechdb/c_hscli.c"]
+ext_modules.append(Extension("pyhytechdb.htcore", sources, depends=depends))
 if use_cython:
-    ext_modules.append(Extension("pyhytechdb.htcore",
-                                 ["pyhytechdb/htcore.pyx", "pyhytechdb/c_hscli.c", "pyhytechdb/c_hscli.h"]))
     cmdclass.update({'build_ext': build_ext})
-else:
-    ext_modules.append(Extension("pyhytechdb.htcore",
-                                 ["pyhytechdb/htcore.c", "pyhytechdb/c_hscli.c", "pyhytechdb/c_hscli.h"]))
 
 if sys.version_info < (3, 5):
     raise RuntimeError('pyhytechdb requires Python 3.5 or greater')
