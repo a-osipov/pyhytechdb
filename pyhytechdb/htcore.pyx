@@ -71,7 +71,6 @@ SCALLBACK = None
 USCALLBACK = None
 
 
-
 def srvusersendlog(message, usertype):
     log.debug("SrvUserSend(%s)" % message)
 
@@ -92,7 +91,6 @@ def initlibrary():
             if codeerr == 3001:
                 raise InterfaceError("hcSqlInit error hscli.dll")
             raise InterfaceError("hcSqlInit error %d:", codeerr)
-
     initial = True
 
 
@@ -215,7 +213,6 @@ cdef class Connection:
     def server_version(self):
         """
         Версия сервера Hytech
-        :return:
         :return: str
         """
         cdef:
@@ -241,7 +238,6 @@ cdef class Connection:
         :return: str
         """
         cdef:
-            # unsigned size=50;
             unsigned cnt;
             char pValue[80]
         codeerr = htcore.hcSqlGetConnectAttr(self.hdb,
@@ -251,7 +247,6 @@ cdef class Connection:
                                  sizeof(pValue),
                                  &cnt
                                  )
-
         if codeerr !=0:
             raise DatabaseError("server_address error %d:", codeerr)
         if DEBUG: log.debug("%r: server_address() %s" % (self, pValue.decode('cp866')))
@@ -277,7 +272,6 @@ cdef class Connection:
 
         if codeerr !=0:
             raise DatabaseError("hcSqlGetConnectAttr error %d:", codeerr)
-        # if DEBUG: log.debug("%r: client_address() %s" % (self, pValue.decode('cp866')))
         return pValue.decode('cp866')
 
     def usersend_callback(self, uscallback):
@@ -572,7 +566,6 @@ cdef class Cursor:
         int result_contains_record
         object _retcode
 
-
     def __cinit__(self, int hdb, object err_to_user):
         """
         :type err_to_user: bool
@@ -810,7 +803,6 @@ cdef class Cursor:
             desc = collections.namedtuple('Field', ['name', 'type_code', 'display_size', 'internal_size',
                                                    'precision', 'scale', 'null_ok',])
             return [desc(*[field.name, field.type, 0, field.len, None, None,None]) for field in self.fields]
-
 
     def _read_retcode(self, retcode_length):
         cdef:

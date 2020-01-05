@@ -50,8 +50,6 @@ cdef extern from "c_hscli.h":
     int (__stdcall *hcSqlReadResults)(int hStmt, long gStart, void *pBuf, unsigned 	wBufSize, unsigned	*cnt)
     #/* Изменение параметров соединения */
     int (__stdcall *hcSqlSetConnectAttr)(int hdb,  unsigned	option, void *pValue, unsigned	size)
-    #/* Изменение параметров оператора */
-    int  (__stdcall *hcSqlSetStmtAttr)(int hStmt, unsigned	option, void *pValue, unsigned size)
     #/* Чтение данных сообщения */
     int (__stdcall *hcSqlConnReadMsg)(int hdb, void *buf, unsigned sz, unsigned *cnt)
     #/* Закрыть доступ к результатам ОПЕРАТОРА   */

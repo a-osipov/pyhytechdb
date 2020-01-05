@@ -8,8 +8,8 @@ import datetime
 DEBUG = False
 HEAPCTRL = 20000 #Размер буфера при чтении результата запроса
 
-version_info = (1, 0, 1)
-__version__ = '1.0.1'
+version_info = (1, 0, 2)
+__version__ = '1.0.2'
 apilevel = '2.0'
 threadsafety = 1
 paramstyle = 'pyformat'
