@@ -31,12 +31,17 @@ ext_modules = []
 data_files = [('', ['./README.md']),]
 depends = ["pyhytechdb/c_hscli.h"]
 sources = ["pyhytechdb/htcore.pyx", "pyhytechdb/c_hscli.c"]
+
 ext_modules.append(Extension("pyhytechdb.htcore", sources, depends=depends))
+
 if use_cython:
     cmdclass.update({'build_ext': build_ext})
 
 if sys.version_info < (3, 5):
     raise RuntimeError('pyhytechdb requires Python 3.5 or greater')
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
 
 setup(name="pyhytechdb",
       version='.'.join(version),
@@ -47,7 +52,8 @@ setup(name="pyhytechdb",
       packages=find_packages(),
       data_files=data_files,
       description='pyhytechdb package is a set of DBMS HyTech(https://hytechdb.ru/)',
-      long_description=open(join(dirname(__file__), 'README.rst')).read(),
+      long_description=long_description,
+      long_description_content_type="text/markdown",
       url='https://github.com/a-osipov/pyhytechdb',
       cmdclass=cmdclass,
       ext_modules=ext_modules,
